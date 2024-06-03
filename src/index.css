@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+body {
+	margin: auto;
+}
+
+/* Custom styling for slick dots */
+.slick-dots {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex !important;
+	justify-content: center;
+}
+
+.slick-dots li {
+	margin: 0 4px;
+	width: 100% !important;
+	border-radius: 50px;
+	height: 10px !important;
+	background-color: #E6E9F2;
+}
+
+.slick-dots li button {
+	content: '';
+	height: 10px !important;
+	display: block;
+	width: 100% !important;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	border: none;
+	background-color: #E6E9F2;
+	outline: none;
+
+}
+
+.slick-dots li.slick-active button {
+	background-color: #1F2937;
+}
+
+.slick-dots li button:before {
+	display: none !important;
+}
