@@ -9,36 +9,23 @@ const Header = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [name, setName] = useState("Create Wallet");
 
+  // Update button name when navigating to /Collection
   useEffect(() => {
-    if (location.pathname === "/Wallet") {
-      setName("Create Wallet");
-    } else if (location.pathname === "/") {
+    if (location.pathname === "/Collection") {
       setName("Account");
     }
   }, [location.pathname]);
 
-  //Popup Query
-  const handleConnectWalletClick = () => {
+  // Function to handle wallet creation and redirection
+  const handleCreateWalletClick = () => {
     if (name === "Account") {
       setIsPopupOpen(true);
     } else {
       navigate("/Wallet");
+      setName("Account");
     }
-
-    /*    if(location.pathname==="/Wallet")
-      { 
-          navigate('/'); 
-       
-
-        }
-        else if(location.pathname==="/"){
-          
-          navigate('/Wallet'); 
-       
-        }*/
-
-    //setName('Account') ;
   };
+
   const closePopup = () => {
     setIsPopupOpen(false);
   };
@@ -52,7 +39,7 @@ const Header = () => {
         <div className="flex justify-end">
           <button
             className="border border-black px-4 py-2 rounded-full text-black"
-            onClick={handleConnectWalletClick}
+            onClick={handleCreateWalletClick}
           >
             {name}
           </button>
@@ -63,4 +50,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;
