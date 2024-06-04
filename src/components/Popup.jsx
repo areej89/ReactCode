@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Popup = ({ isOpen, onClose, image }) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
+
+  const handleStartShopping = () => {
+    navigate("/Collection");
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-end">
@@ -46,7 +54,7 @@ const Popup = ({ isOpen, onClose, image }) => {
             )}
             <button
               className="bg-black text-white px-6 py-2 mt-2 rounded-full"
-              onClick={onClose}
+              onClick={handleStartShopping}
             >
               Start shopping
             </button>
